@@ -1,6 +1,9 @@
+
+console.log("waaaaay");
+
 const body = document.getElementById("body")
 const head = document.getElementById("head")
-const subTitle = document.getElementById("sub-title")
+
 const showItems = document.createElement("div");
 const allBuyBtn = document.querySelectorAll(".btn-primary");
 const backScreen = document.getElementById("backScreen");
@@ -25,29 +28,29 @@ const page3 = document.getElementById("page-3")
 const page4 = document.getElementById("page-4")
 const page5 = document.getElementById("page-5")
 
-// const allTabs = document.querySelector(".allpages")
-const allBtn = document.querySelectorAll(".mybtn")
-// const parentOfPage = document.querySelector(".parent-of-page")
+const allTabs = document.querySelector(".alltabs")
+const allBtnTab = document.querySelectorAll(".btn-tab")
+const parentOfPage = document.querySelector(".parent-of-page")
 
 
-// allBtn.forEach((item, index) => {
-//   item.addEventListener("click", (eo) =>{
-//     item.classList.add("active-btn")
-//     console.log(item);
-//     allTabs.getElementsByClassName("active-btn")[0].classList.remove("active-btn")
-//     console.log(allTabs);
-    
-//     parentOfPage.getElementsByClassName("page")[0].classList.remove("page")
-//     parentOfPage.getElementsByClassName("contents")[index].classList.add("page")
-  
-//   })
-// })
+allBtnTab.forEach((item, index) => {
+  item.addEventListener("click", (eo) =>{
+    item.classList.add("active-btn")
+    console.log(item);
+    allTabs.getElementsByClassName("active-btn")[0].classList.remove("active-btn")
+    console.log(allTabs);
+    parentOfPage.getElementsByClassName("active-card")[0].classList.remove("active-card")
+    console.log(parentOfPage);
+    parentOfPage.getElementsByClassName("content")[index].classList.add("active-card")
+    console.log(parentOfPage);
+  })
+})
 
 // كتابة عنوان الموقع آلياً عن طريق دالة
 
 window.onscroll = function () {
   // console.log(this.screenY);
-  if (this.scrollY >= 100) {
+  if (this.scrollY >= 10) {
     head.classList.add("head-mobile")
   }else{
     head.classList.remove("head-mobile")
@@ -57,6 +60,9 @@ window.onscroll = function () {
 // allBtn.addEventListener("click", (eo) => {
 //   contents.scrollY = 100;
 // })
+
+// كتابة عنوان الموقع آلياً عن طريق دالة
+const subTitle = document.getElementById("sub-title")
 let counter = 1
 const autowriting = () => {
     const titleName ="متجر عفة استور لمستلزمات المرأة العصرية"
@@ -70,49 +76,50 @@ const autowriting = () => {
 const stopAutoFun = setInterval(autowriting, 100)
 
 
+
 // التنقل بين الصفحات
-toPage1.addEventListener("click", (eo) => {
-  page1.style.display = "block";
-  page1.style.opacity = 1;
-  page1.style.scrollY = 100;
-  backgroundColor = "var(--main-Color)"
-  page2.style.display = "none";
-  page3.style.display = "none";
-  page4.style.display = "none";
-  page5.style.display = "none";
-})
-toPage2.addEventListener("click", (eo) => {
-  page1.style.display = "none";
-  page2.style.display = "block";
-  page2.style.opacity = 1;
-  page3.style.display = "none";
-  page4.style.display = "none";
-  page5.style.display = "none";
-})
-toPage3.addEventListener("click", (eo) => {
-  page1.style.display = "none";
-  page2.style.display = "none";
-  page3.style.display = "block";
-  page3.style.opacity = 1;
-  page4.style.display = "none";
-  page5.style.display = "none";
-})
-toPage4.addEventListener("click", (eo) => {
-  page1.style.display = "none";
-  page2.style.display = "none";
-  page3.style.display = "none";
-  page4.style.display = "block";
-  page4.style.opacity = 1;
-  page5.style.display = "none";
-})
-toPage5.addEventListener("click", (eo) => {
-  page1.style.display = "none";
-  page2.style.display = "none";
-  page3.style.display = "none";
-  page4.style.display = "none";
-  page5.style.display = "block";
-  page5.style.opacity = 1;
-})
+// toPage1.addEventListener("click", (eo) => {
+//   page1.style.display = "block";
+//   page1.style.opacity = 1;
+//   page1.style.scrollY = 100;
+//   backgroundColor = "var(--main-Color)"
+//   page2.style.display = "none";
+//   page3.style.display = "none";
+//   page4.style.display = "none";
+//   page5.style.display = "none";
+// })
+// toPage2.addEventListener("click", (eo) => {
+//   page1.style.display = "none";
+//   page2.style.display = "block";
+//   page2.style.opacity = 1;
+//   page3.style.display = "none";
+//   page4.style.display = "none";
+//   page5.style.display = "none";
+// })
+// toPage3.addEventListener("click", (eo) => {
+//   page1.style.display = "none";
+//   page2.style.display = "none";
+//   page3.style.display = "block";
+//   page3.style.opacity = 1;
+//   page4.style.display = "none";
+//   page5.style.display = "none";
+// })
+// toPage4.addEventListener("click", (eo) => {
+//   page1.style.display = "none";
+//   page2.style.display = "none";
+//   page3.style.display = "none";
+//   page4.style.display = "block";
+//   page4.style.opacity = 1;
+//   page5.style.display = "none";
+// })
+// toPage5.addEventListener("click", (eo) => {
+//   page1.style.display = "none";
+//   page2.style.display = "none";
+//   page3.style.display = "none";
+//   page4.style.display = "none";
+//   page5.style.display = "block";
+//   page5.style.opacity = 1;
+// })
 
 
 const updateTotalPrice = () => {
@@ -167,8 +174,7 @@ allBuyBtn.forEach((item) => {
 
     }
 
-    {
-      //إضافة منتج في العربة
+    {//إضافة منتج في العربة
       const card = item.parentElement.parentElement.parentElement;
       const imgSrc = card
         .getElementsByClassName("card-img-top")[0]
@@ -311,8 +317,4 @@ SubmitPurchaseRequisition.addEventListener("click", (eo) => {
   }, 100);
 });
 
-const closeSend = document.getElementById("close-send");
-closeSend.addEventListener("click", (eo) => {
-  form.style.transform = "scale(0)";
-  setTimeout(() => {
-    parentForm
+// const closeSend = document.getElementById("close-send"
